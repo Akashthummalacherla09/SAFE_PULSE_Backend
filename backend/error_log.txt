@@ -1,0 +1,1199 @@
+
+Traceback in create at 2026-03-23 23:50:45.562052:
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\parsers.py", line 66, in parse
+    return json.load(decoded_stream, parse_constant=parse_constant)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\utils\json.py", line 31, in load
+    return json.load(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 298, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 365, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 43, in create
+    date = request.data.get('date')
+           ^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\request.py", line 221, in data
+    self._load_data_and_files()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\request.py", line 284, in _load_data_and_files
+    self._data, self._files = self._parse()
+                              ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\request.py", line 359, in _parse
+    parsed = parser.parse(stream, media_type, self.parser_context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\parsers.py", line 68, in parse
+    raise ParseError('JSON parse error - %s' % str(exc))
+rest_framework.exceptions.ParseError: JSON parse error - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 71, in get
+    'tracker': DailyLogSerializer(DailyLog.objects.filter(user=user).order_by('date'), many=True).data,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 71, in get
+    'tracker': DailyLogSerializer(DailyLog.objects.filter(user=user).order_by('date'), many=True).data,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 71, in get
+    'tracker': DailyLogSerializer(DailyLog.objects.filter(user=user).order_by('date'), many=True).data,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+
+Traceback at 2026-03-24 09:16:21.932296:
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 37, in perform_create
+    serializer.save(user=self.request.user, score=score, weight=weight, systolic=systolic, diastolic=diastolic)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1220, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 71, in get
+    'tracker': DailyLogSerializer(DailyLog.objects.filter(user=user).order_by('date'), many=True).data,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+
+Traceback in create at 2026-03-24 09:16:22.477958:
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 37, in perform_create
+    serializer.save(user=self.request.user, score=score, weight=weight, systolic=systolic, diastolic=diastolic)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1220, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 574, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 844, in _execute_command
+    raise err.InterfaceError(0, "")
+pymysql.err.InterfaceError: (0, '')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 55, in create
+    return super().create(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 42, in perform_create
+    serializer.save(user=self.request.user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 669, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 874, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 966, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, insert_fields, returning_fields, raw
+    )
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\base.py", line 1220, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 1918, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1925, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 574, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 844, in _execute_command
+    raise err.InterfaceError(0, "")
+django.db.utils.InterfaceError: (0, '')
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 92, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 95, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in sync get: Traceback (most recent call last):
+  File "c:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 96, in get
+    last_24h = timezone.now() - datetime.timedelta(hours=24)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'timezone' where it is not associated with a value
+
+
+Traceback in create at 2026-03-24 15:06:47.063669:
+Traceback (most recent call last):
+  File "C:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 55, in create
+    return super().create(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'date': [ErrorDetail(string='This field is required.', code='required')]}
+
+
+Traceback in create at 2026-03-24 15:08:01.514510:
+Traceback (most recent call last):
+  File "C:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 55, in create
+    return super().create(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'date': [ErrorDetail(string='This field is required.', code='required')]}
+
+
+Incoming POST to /api/tracker/ at 2026-03-24 15:24:25.978032:
+Data: {'calories': 0, 'date': '2026-03-24', 'diastolic': 0, 'score': 0, 'sleep': 0.0, 'smoked': True, 'steps': 1000, 'systolic': 0, 'water': 2.0, 'weight': 0.0}
+User: test@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-24 15:27:52.960553:
+Data: {'calories': 0, 'date': '2026-03-24', 'diastolic': 0, 'score': 0, 'sleep': 0.0, 'smoked': True, 'steps': 0, 'systolic': 0, 'water': 2.0, 'weight': 0.0}
+User: test@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-24 15:57:29.827089:
+Data: {'calories': 0, 'date': '2026-03-24', 'diastolic': 0, 'score': 0, 'sleep': 0.0, 'smoked': True, 'steps': 100, 'systolic': 0, 'water': 2.0, 'weight': 0.0}
+User: test@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-24 15:57:50.684681:
+Data: {'date': '2026-03-24', 'water': 0, 'smoked': False, 'steps': 0, 'sleep': 8, 'calories': 0, 'weight': 0, 'systolic': 120, 'diastolic': 80}
+User: test@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-26 12:17:56.232186:
+Data: {'date': '2026-03-26', 'water': 1, 'smoked': True, 'steps': 1000, 'sleep': 7.5, 'calories': 1000, 'weight': 90, 'systolic': 120, 'diastolic': 80}
+User: user@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-26 15:46:24.372793:
+Data: {'date': '2026-03-26', 'water': 1, 'smoked': True, 'steps': 1000, 'sleep': 8.5, 'calories': 1000, 'weight': 30, 'systolic': 120, 'diastolic': 80}
+User: user@gmail.com
+
+Incoming POST to /api/tracker/ at 2026-03-27 11:58:01.039924:
+Data: {'calories': 2000, 'date': '2026-03-27', 'diastolic': 90, 'score': 40, 'sleep': 8.5, 'smoked': True, 'steps': 1000, 'systolic': 130, 'water': 2.0, 'weight': 90.0}
+User: user@gmail.com
+
+Traceback in sync get: Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 789, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\akash\AndroidStudioProjects\Safe_pulse\backend\tracker\views.py", line 175, in get
+    m_assess = HealthAssessment.objects.filter(timestamp__range=(month_start, month_end)).count()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\query.py", line 610, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\query.py", line 656, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\query.py", line 638, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\django\db\backends\mysql\base.py", line 78, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 751, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "C:\Users\akash\AppData\Local\Programs\Python\Python314\Lib\site-packages\pymysql\connections.py", line 795, in _read_bytes
+    raise err.OperationalError(
+    ...<2 lines>...
+    )
+django.db.utils.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10054] An existing connection was forcibly closed by the remote host)')
+

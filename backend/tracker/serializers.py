@@ -1,0 +1,8 @@
+from rest_framework import serializers
+from .models import DailyLog
+
+class DailyLogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DailyLog
+        fields = ['id', 'date', 'water', 'smoked', 'steps', 'sleep', 'calories', 'weight', 'systolic', 'diastolic', 'score', 'timestamp']
+        read_only_fields = ['timestamp']
